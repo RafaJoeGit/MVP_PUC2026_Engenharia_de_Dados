@@ -1,0 +1,478 @@
+{
+  "datasets": [
+    {
+      "name": "950fac1b",
+      "displayName": "gold_neighbourhood_price",
+      "config": {
+        "version": "1.1",
+        "source": "workspace.default.gold_neighbourhood_price",
+        "dimensions": [
+          {
+            "expr": "source.*"
+          }
+        ],
+        "measures": [
+          {
+            "name": "count",
+            "expr": "COUNT(*)",
+            "comment": "Represents the total number of rows in the dataset. Use this measure to count all",
+            "displayName": "Count"
+          }
+        ]
+      }
+    },
+    {
+      "name": "5a10d27c",
+      "displayName": "gold_room_type_price",
+      "config": {
+        "version": "1.1",
+        "source": "workspace.default.gold_room_type_price",
+        "dimensions": [
+          {
+            "expr": "source.*"
+          }
+        ],
+        "measures": [
+          {
+            "name": "count",
+            "expr": "COUNT(*)",
+            "comment": "Represents the total number of rows in the dataset. Use this measure to count all",
+            "displayName": "Count"
+          }
+        ]
+      }
+    },
+    {
+      "name": "8889a957",
+      "displayName": "gold_review_analysis",
+      "config": {
+        "version": "1.1",
+        "source": "workspace.default.gold_review_analysis",
+        "dimensions": [
+          {
+            "expr": "source.*"
+          }
+        ],
+        "measures": [
+          {
+            "name": "count",
+            "expr": "COUNT(*)",
+            "comment": "Represents the total number of rows in the dataset. Use this measure to count all",
+            "displayName": "Count"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ddb2b697",
+      "displayName": "fact_listing_dimensional",
+      "config": {
+        "version": "1.1",
+        "source": "workspace.default.fact_listing_dimensional",
+        "dimensions": [
+          {
+            "expr": "source.*"
+          }
+        ],
+        "measures": [
+          {
+            "name": "count",
+            "expr": "COUNT(*)",
+            "comment": "Represents the total number of rows in the dataset. Use this measure to count all",
+            "displayName": "Count"
+          }
+        ]
+      }
+    }
+  ],
+  "pages": [
+    {
+      "name": "9fcf2866",
+      "displayName": "MVP-Analise_airbnb_saopaulo",
+      "layout": [
+        {
+          "widget": {
+            "name": "5135ebf1",
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {}
+            }
+          },
+          "position": {
+            "x": 5,
+            "y": 46,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "avaliacao-preco-medio-dos-anuncios",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "8889a957",
+                  "fields": [
+                    {
+                      "name": "faixa_avaliacao",
+                      "expression": "`faixa_avaliacao`"
+                    },
+                    {
+                      "name": "total_anuncios",
+                      "expression": "`total_anuncios`"
+                    },
+                    {
+                      "name": "avaliacao_media",
+                      "expression": "`avaliacao_media`"
+                    },
+                    {
+                      "name": "preco_medio",
+                      "expression": "`preco_medio`"
+                    },
+                    {
+                      "name": "media_avaliacoes",
+                      "expression": "`media_avaliacoes`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": {
+                  "value": " **Avaliação × Preço Médio dos Anúncios**\n<p>&nbsp;</p>\n",
+                  "fields": []
+                }
+              },
+              "version": 3,
+              "widgetType": "scatter",
+              "encodings": {
+                "x": {
+                  "fieldName": "avaliacao_media",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "fieldName": "preco_medio",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "faixa_avaliacao",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "size": {
+                  "fieldName": "total_anuncios",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "extra": [
+                  {
+                    "fieldName": "total_anuncios"
+                  },
+                  {
+                    "fieldName": "avaliacao_media"
+                  },
+                  {
+                    "fieldName": "preco_medio"
+                  },
+                  {
+                    "fieldName": "media_avaliacoes"
+                  }
+                ]
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 5,
+            "y": 10,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "16b2a81a",
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {}
+            }
+          },
+          "position": {
+            "x": 5,
+            "y": 40,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "preco-medio-por-numero-de-quartos",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "ddb2b697",
+                  "fields": [
+                    {
+                      "name": "bedrooms",
+                      "expression": "`bedrooms`"
+                    },
+                    {
+                      "name": "avg(price)",
+                      "expression": "AVG(`price`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": {
+                  "value": " **Preço médio por número de quartos**\n<p>&nbsp;</p>\n",
+                  "fields": []
+                }
+              },
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "bedrooms",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "fieldName": "avg(price)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 5,
+            "y": 28,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "preco-medio-por-tipo-de-acomodacao",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "5a10d27c",
+                  "fields": [
+                    {
+                      "name": "room_type",
+                      "expression": "`room_type`"
+                    },
+                    {
+                      "name": "avg(preco_medio)",
+                      "expression": "AVG(`preco_medio`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": {
+                  "value": " **Preço médio por tipo de acomodação**\n<p>&nbsp;</p>\n",
+                  "fields": []
+                }
+              },
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "room_type",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "avg(preco_medio)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 5,
+            "y": 16,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "b1eec150",
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {}
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 34,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "preco-medio-por-capacidade-do-imovel",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "ddb2b697",
+                  "fields": [
+                    {
+                      "name": "accommodates",
+                      "expression": "`accommodates`"
+                    },
+                    {
+                      "name": "avg(price)",
+                      "expression": "AVG(`price`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": {
+                  "value": "**Preço médio por capacidade do imóvel**\n<p>&nbsp;</p>\n",
+                  "fields": []
+                }
+              },
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "accommodates",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "fieldName": "avg(price)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 22,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "972122b1",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "950fac1b",
+                  "fields": [
+                    {
+                      "name": "neighbourhood_cleansed",
+                      "expression": "`neighbourhood_cleansed`"
+                    },
+                    {
+                      "name": "avg(preco_medio)",
+                      "expression": "AVG(`preco_medio`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "neighbourhood_cleansed",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "avg(preco_medio)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 4,
+            "width": 6,
+            "height": 6
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    },
+    {
+      "name": "60d0c632",
+      "displayName": "Untitled page",
+      "pageType": "PAGE_TYPE_CANVAS"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "applyModeEnabled": false
+  }
+}
