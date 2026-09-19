@@ -32,8 +32,11 @@ atributos dos anúncios e métricas usadas nas análises.
 
 `workspace.default.fact_listing`
 
-Foi materializada como parte da organização do pipeline antes/ao lado da
-estrutura dimensional.
+Contém o identificador do anúncio como `listing_id` (padronizado a
+partir da coluna original `id` da Bronze/Silver) junto com os demais
+atributos do anúncio, antes da junção com as dimensões. Foi
+materializada como etapa intermediária da modelagem, servindo de base
+para a construção da `fact_listing_dimensional`.
 
 ## Linhagem dos dados
 
