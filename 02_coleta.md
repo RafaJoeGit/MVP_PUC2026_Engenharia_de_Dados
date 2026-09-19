@@ -8,6 +8,16 @@ A fonte utilizada foi o Inside Airbnb (https://insideairbnb.com/pt/get-the-data/
 hospedagem em São Paulo. O arquivo efetivamente ingerido pelo notebook é
 `listings.csv.gz`.
 
+## Licença de uso
+
+O Inside Airbnb disponibiliza seus dados sob licença **Creative
+Commons Attribution 4.0 International (CC BY 4.0)**, conforme descrito
+em <https://insideairbnb.com/about/>. O uso é permitido para fins não
+comerciais e acadêmicos, mediante atribuição da fonte original
+("Inside Airbnb"). Este trabalho é de caráter acadêmico e cita a fonte
+dos dados em toda a documentação, atendendo aos termos da licença.
+
+
 ## Arquivos utilizados
 
 -   `listings.csv.gz`

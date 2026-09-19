@@ -34,3 +34,24 @@ atributos dos anúncios e métricas usadas nas análises.
 
 Foi materializada como parte da organização do pipeline antes/ao lado da
 estrutura dimensional.
+
+## Linhagem dos dados
+
+- **Origem:** arquivo `listings.csv.gz`, obtido do portal Inside
+  Airbnb (<https://insideairbnb.com/pt/get-the-data/>), referente à
+  cidade de São Paulo, com dados coletados (scraped) entre
+  2026-06-14 e 2026-06-16 (campo `last_scraped`).
+- **Técnica de composição:** o arquivo já é disponibilizado pronto
+  pelo Inside Airbnb (resultado de web scraping realizado pela própria
+  organização mantenedora do projeto); não houve, deste lado, etapa de
+  scraping adicional.
+- **Trajetória no pipeline:**
+  1. Ingestão do CSV compactado no Databricks Free Edition →
+     `bronze_listings` (dado bruto, sem alterações).
+  2. Limpeza, tipagem e padronização → `silver_listings` (ver
+     `04_silver.md` para o detalhamento das transformações).
+  3. Modelagem dimensional → `dim_neighbourhood`, `dim_room_type`,
+     `fact_listing` e `fact_listing_dimensional`.
+  4. Agregações analíticas → tabelas Gold específicas por pergunta de
+     negócio (preço, avaliação, disponibilidade, oportunidade, perfil).
+

@@ -1,11 +1,23 @@
 # Objetivo e perguntas de negócio
 
+## Contexto de negócio
+
+O mercado de hospedagem de curta temporada em São Paulo é altamente
+heterogêneo: preços, avaliações e disponibilidade variam fortemente
+entre bairros e tipos de acomodação. Um anfitrião que está decidindo
+onde anunciar um novo imóvel, ou um investidor avaliando a viabilidade
+de uma propriedade para locação por temporada, precisa entender quais
+fatores efetivamente influenciam o desempenho de um anúncio (preço
+competitivo, avaliação, ocupação) antes de tomar essa decisão.
+
 ## Objetivo
 
 Construir um pipeline de dados em nuvem utilizando dados públicos do
-Inside Airbnb, percorrendo coleta, persistência, tratamento, modelagem e
-análise para gerar informações sobre anúncios de hospedagem em São
-Paulo.
+Inside Airbnb, percorrendo coleta, persistência, tratamento, modelagem
+e análise, para apoiar a compreensão de quais características de um
+anúncio (localização, tipo de acomodação, capacidade, avaliação,
+disponibilidade) mais se relacionam com seu preço e desempenho no
+mercado de hospedagem de São Paulo.
 
 ## Perguntas
 

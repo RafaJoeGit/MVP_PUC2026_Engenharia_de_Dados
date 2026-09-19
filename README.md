@@ -47,8 +47,8 @@ mantidos e considerados na interpretação.
 Preço médio por tipo: - Hotel room: R\$ 574,13 - Entire home/apt: R\$
 438,22 - Private room: R\$ 299,98 - Shared room: R\$ 151,52
 
-Correlações com preço: - `accommodates`: 0,2111 - `bedrooms`: 0,1602 -
-`beds`: 0,1172 - `review_scores_rating`: 0,0213
+Correlações com preço: - `accommodates`: 0,2111 - `bedrooms`: 0,1641 -
+`beds`: 0,1172 - `review_scores_rating`: 0,0018
 
 ## Limitações
 
