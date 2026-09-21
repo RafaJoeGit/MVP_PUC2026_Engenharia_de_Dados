@@ -1,0 +1,83 @@
+# Análises Visuais — Inside Airbnb São Paulo
+
+Cada gráfico abaixo foi construído em SQL sobre `fact_listing_dimensional`
+(ou, no caso do Gráfico 01, sobre a tabela Gold `gold_neighbourhood_price`).
+Os gráficos 02 a 09 aplicam o filtro `review_scores_rating IS NOT NULL`
+de forma intencional — o recorte considera apenas anúncios com avaliação
+registrada, o que pode gerar números ligeiramente diferentes dos
+totais "brutos" documentados no `10_resultados.md` e no README
+principal (que não aplicam esse filtro). Essa diferença de critério é
+proposital e está anotada em cada gráfico onde se aplica.
+
+## Gráfico 01 — Preço médio por bairro (tabela Gold oficial)
+**Fonte:** `gold_neighbourhood_price`
+**Pergunta relacionada:** 1
+**Conclusão:** Reproduz, direto da tabela Gold oficial, o ranking de
+preço médio por bairro. Serve como evidência de que a camada Gold está
+consistente com o que foi documentado nos resultados finais.
+
+## Gráfico 02 — Preço médio por bairro (recorte com avaliação)
+**Fonte:** `fact_listing_dimensional`, filtrado por `review_scores_rating IS NOT NULL`
+**Pergunta relacionada:** 1
+**Conclusão:** Mostra o mesmo ranking de bairros, mas restrito a
+anúncios com avaliação — um recorte mais rigoroso, pensado para reduzir
+o peso de anúncios muito novos ou pouco usados na análise de preço.
+
+## Gráfico 03 — Preço médio por tipo de acomodação (recorte com avaliação)
+**Fonte:** `fact_listing_dimensional`, filtrado por `review_scores_rating IS NOT NULL`
+**Pergunta relacionada:** 2
+**Conclusão:** Confirma a hierarquia de preço por tipo de acomodação já
+observada nos resultados oficiais, agora considerando só anúncios
+avaliados.
+
+## Gráfico 04 — Preço, disponibilidade e avaliação por tipo de acomodação
+**Fonte:** `fact_listing_dimensional`, filtrado por `review_scores_rating IS NOT NULL`
+**Pergunta relacionada:** 2 (com contexto para a 4)
+**Conclusão:** Cruza três métricas por tipo de acomodação numa única
+visão, permitindo comparar não só preço, mas também quão disponíveis e
+bem avaliados são os anúncios de cada categoria.
+
+## Gráfico 05 — Volume de anúncios por tipo de acomodação
+**Fonte:** `fact_listing_dimensional`, filtrado por `review_scores_rating IS NOT NULL`
+**Pergunta relacionada:** 2
+**Conclusão:** Mostra qual tipo de acomodação domina o mercado de São
+Paulo em número de anúncios avaliados, complementando a análise de
+preço com a dimensão de volume/oferta.
+
+## Gráfico 06 — Top 15 bairros por quantidade de anúncios
+**Fonte:** `fact_listing_dimensional`, filtrado por `review_scores_rating IS NOT NULL`
+**Pergunta relacionada:** 1
+**Conclusão:** Identifica os bairros com maior concentração de oferta
+de hospedagem, o que ajuda a interpretar o Gráfico 01/02: bairros caros
+com poucos anúncios pesam menos na análise geral do que bairros com
+grande volume.
+
+## Gráfico 07 — Top 15 bairros por preço médio
+**Fonte:** `fact_listing_dimensional`, filtrado por `review_scores_rating IS NOT NULL`
+**Pergunta relacionada:** 1
+**Conclusão:** Foca exclusivamente nos bairros mais caros, dando mais
+destaque visual ao topo do ranking do que o Gráfico 02, que mostra
+todos os bairros de uma vez.
+
+## Gráfico 08 — Top 15 bairros por avaliação média
+**Fonte:** `fact_listing_dimensional`, filtrado por `review_scores_rating IS NOT NULL`
+**Pergunta relacionada:** 4
+**Conclusão:** Aborda a relação avaliação/localização por um ângulo
+que a correlação numérica da Pergunta 4 não captura: mesmo com
+correlação avaliação×preço praticamente nula no geral, é possível ver
+quais bairros específicos concentram as melhores avaliações médias.
+
+## Gráfico 09 — Volume de anúncios por bairro e tipo de acomodação (top 30)
+**Fonte:** `fact_listing_dimensional` (sem filtro de avaliação)
+**Pergunta relacionada:** 5 (disponibilidade/perfil por bairro e tipo)
+**Conclusão:** Detalha as combinações bairro × tipo de acomodação mais
+frequentes, complementando a tabela `gold_availability` com uma visão
+de volume por combinação.
+
+## Gráfico 10 — Preço médio por tipo de acomodação (sem filtro de avaliação)
+**Fonte:** `fact_listing_dimensional`, sem filtro de avaliação
+**Pergunta relacionada:** 2
+**Conclusão:** É o único gráfico de preço por tipo que usa exatamente
+o mesmo critério da tabela oficial `gold_room_type_price` — serve como
+conferência visual direta dos valores já documentados no README
+(R$ 574,13 / R$ 438,22 / R$ 299,98 / R$ 151,52).
