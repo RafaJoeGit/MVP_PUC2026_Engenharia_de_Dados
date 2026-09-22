@@ -62,8 +62,7 @@ resposta óbvia, que exigiram julgamento e não apenas execução técnica:
   apontava para uma delas, o que poderia ter gerado uma inconsistência
   não percebida entre o gráfico e os resultados documentados. Corrigi
   o gráfico para usar a tabela oficial e removi as três tabelas
-  órfãs, deixando o workspace com apenas as 15 tabelas realmente
-  produzidas pelo pipeline atual.
+  órfãs, deixando o workspace apenas com as tabelas efetivamente utilizadas pela versão final do pipeline, conforme validação realizada no notebook 00_inventario_de_tabelas.ipynb.
 
 ## Decisões metodológicas
 

@@ -41,8 +41,4 @@ transformações:
 
 ## Observação sobre o identificador do anúncio
 
-O identificador chega na Silver como `id`. Em etapas posteriores da
-modelagem dimensional, esse campo é renomeado para `listing_id`. Veja
-`06_modelo_dimensional.md` para o detalhamento dessa transição e uma
-inconsistência de nomenclatura ainda pendente entre `fact_listing` e
-`fact_listing_dimensional`.
+“O identificador original id é padronizado como listing_id na etapa de modelagem Gold, garantindo nomenclatura consistente nas tabelas fato do modelo dimensional.”
