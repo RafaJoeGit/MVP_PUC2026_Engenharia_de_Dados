@@ -16,12 +16,16 @@ proposital e está anotada em cada gráfico onde se aplica.
 preço médio por bairro. Serve como evidência de que a camada Gold está
 consistente com o que foi documentado nos resultados finais.
 
+![image_1790089468389.jpeg](./image_1790089468389.jpeg "image_1790089468389.jpeg")
+
 ## Gráfico 02 — Preço médio por bairro (recorte com avaliação)
 **Fonte:** `fact_listing_dimensional`, filtrado por `review_scores_rating IS NOT NULL`
 **Pergunta relacionada:** 1
 **Conclusão:** Mostra o mesmo ranking de bairros, mas restrito a
 anúncios com avaliação — um recorte mais rigoroso, pensado para reduzir
 o peso de anúncios muito novos ou pouco usados na análise de preço.
+
+![image_1790089502700.jpeg](./image_1790089502700.jpeg "image_1790089502700.jpeg")
 
 ## Gráfico 03 — Preço médio por tipo de acomodação (recorte com avaliação)
 **Fonte:** `fact_listing_dimensional`, filtrado por `review_scores_rating IS NOT NULL`
@@ -30,6 +34,9 @@ o peso de anúncios muito novos ou pouco usados na análise de preço.
 observada nos resultados oficiais, agora considerando só anúncios
 avaliados.
 
+![image_1790089543666.jpeg](./image_1790089543666.jpeg "image_1790089543666.jpeg")
+
+
 ## Gráfico 04 — Preço, disponibilidade e avaliação por tipo de acomodação
 **Fonte:** `fact_listing_dimensional`, filtrado por `review_scores_rating IS NOT NULL`
 **Pergunta relacionada:** 2 (com contexto para a 4)
@@ -37,12 +44,16 @@ avaliados.
 visão, permitindo comparar não só preço, mas também quão disponíveis e
 bem avaliados são os anúncios de cada categoria.
 
+![image_1790089582387.jpeg](./image_1790089582387.jpeg "image_1790089582387.jpeg")
+
 ## Gráfico 05 — Volume de anúncios por tipo de acomodação
 **Fonte:** `fact_listing_dimensional`, filtrado por `review_scores_rating IS NOT NULL`
 **Pergunta relacionada:** 2
 **Conclusão:** Mostra qual tipo de acomodação domina o mercado de São
 Paulo em número de anúncios avaliados, complementando a análise de
 preço com a dimensão de volume/oferta.
+
+![image_1790089628316.jpeg](./image_1790089628316.jpeg "image_1790089628316.jpeg")
 
 ## Gráfico 06 — Top 15 bairros por quantidade de anúncios
 **Fonte:** `fact_listing_dimensional`, filtrado por `review_scores_rating IS NOT NULL`
@@ -52,12 +63,16 @@ de hospedagem, o que ajuda a interpretar o Gráfico 01/02: bairros caros
 com poucos anúncios pesam menos na análise geral do que bairros com
 grande volume.
 
+![image_1790090156481.jpeg](./image_1790090156481.jpeg "image_1790090156481.jpeg")
+
 ## Gráfico 07 — Top 15 bairros por preço médio
 **Fonte:** `fact_listing_dimensional`, filtrado por `review_scores_rating IS NOT NULL`
 **Pergunta relacionada:** 1
 **Conclusão:** Foca exclusivamente nos bairros mais caros, dando mais
 destaque visual ao topo do ranking do que o Gráfico 02, que mostra
 todos os bairros de uma vez.
+
+![image_1790090182493.jpeg](./image_1790090182493.jpeg "image_1790090182493.jpeg")
 
 ## Gráfico 08 — Top 15 bairros por avaliação média
 **Fonte:** `fact_listing_dimensional`, filtrado por `review_scores_rating IS NOT NULL`
@@ -67,12 +82,16 @@ que a correlação numérica da Pergunta 4 não captura: mesmo com
 correlação avaliação×preço praticamente nula no geral, é possível ver
 quais bairros específicos concentram as melhores avaliações médias.
 
+![image_1790090214754.jpeg](./image_1790090214754.jpeg "image_1790090214754.jpeg")
+
 ## Gráfico 09 — Volume de anúncios por bairro e tipo de acomodação (top 30)
 **Fonte:** `fact_listing_dimensional` (sem filtro de avaliação)
 **Pergunta relacionada:** 5 (disponibilidade/perfil por bairro e tipo)
 **Conclusão:** Detalha as combinações bairro × tipo de acomodação mais
 frequentes, complementando a tabela `gold_availability` com uma visão
 de volume por combinação.
+
+![image_1790090238730.jpeg](./image_1790090238730.jpeg "image_1790090238730.jpeg")
 
 ## Gráfico 10 — Preço médio por tipo de acomodação (sem filtro de avaliação)
 **Fonte:** `fact_listing_dimensional`, sem filtro de avaliação
@@ -81,3 +100,5 @@ de volume por combinação.
 o mesmo critério da tabela oficial `gold_room_type_price` — serve como
 conferência visual direta dos valores já documentados no README
 (R$ 574,13 / R$ 438,22 / R$ 299,98 / R$ 151,52).
+
+![image_1790090272657.jpeg](./image_1790090272657.jpeg "image_1790090272657.jpeg")
